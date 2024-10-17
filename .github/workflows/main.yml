@@ -42,7 +42,7 @@ jobs:
 
       # Run Lerna version
       - name: Lerna version
-        run: npx lerna version --yes
+        run: npx lerna version minor --yes
 
       # Build the project
       - name: Build the project
