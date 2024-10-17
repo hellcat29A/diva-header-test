@@ -42,7 +42,7 @@ jobs:
 
       # Run Lerna version
       - name: Lerna version
-        run: npx lerna version minor --yes
+        run: npx lerna version --yes
 
       # Publish the package using Lerna
       - name: Publish to GitHub Registry with Lerna

@@ -38,7 +38,9 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.8",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "lerna": "^8.1.6"
+
   },
   "peerDependencies": {
     "react": "^18.3.1",
