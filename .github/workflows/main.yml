@@ -30,6 +30,20 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Stage and commit any changes
+      - name: Stage package-lock.json
+        run: git add package-lock.json
+
+      - name: Commit changes
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git commit -m "fix: commit package-lock.json changes" || echo "No changes to commit"
+
+      # Run Lerna version
+      - name: Lerna version
+        run: npx lerna version --yes
+
       # Build the project
       - name: Build the project
         run: npm run rollup
