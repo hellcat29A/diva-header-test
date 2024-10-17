@@ -17,7 +17,7 @@ export default function DivaNavbar() {
                         className="sm:hidden"
                     />
                     <NavbarBrand>
-                        <Image src='images/logo_white.png' width={50} />
+                        <Image src='/public/logo.png' width={50} />
                     </NavbarBrand>
                 </NavbarContent>
 
