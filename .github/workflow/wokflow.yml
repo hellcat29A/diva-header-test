@@ -1,0 +1,47 @@
+name: Publish to GitHub Registry
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x' # Set the Node.js version you need
+          registry-url: https://npm.pkg.github.com/
+
+      # Authenticate to GitHub Registry
+      - name: Authenticate to GitHub Package Registry
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Build the project
+      - name: Build the project
+        run: npm run rollup
+
+      # Run Lerna to check version and changes
+      - name: Check versions with Lerna
+        run: |
+          npx lerna version --yes
+          npx lerna changed
+
+      # Publish the package to GitHub Package Registry
+      - name: Publish to GitHub Registry
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
