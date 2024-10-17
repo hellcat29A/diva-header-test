@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x' # Set the Node.js version you need
+          node-version: "18.x" # Set the Node.js version you need
           registry-url: https://npm.pkg.github.com/
 
       # Authenticate to GitHub Registry
@@ -33,12 +33,6 @@ jobs:
       # Build the project
       - name: Build the project
         run: npm run rollup
-
-      # Run Lerna to check version and changes
-      - name: Check versions with Lerna
-        run: |
-          npx lerna version --yes
-          npx lerna changed
 
       # Publish the package to GitHub Package Registry
       - name: Publish to GitHub Registry
