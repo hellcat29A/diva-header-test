@@ -3,6 +3,6 @@
   "version": "independent",
   "conventionalCommits": true,
   "packages": [
-    "./**"
+    "/**"
   ]
 }
