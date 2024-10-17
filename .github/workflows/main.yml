@@ -44,12 +44,8 @@ jobs:
       - name: Lerna version
         run: npx lerna version minor --yes
 
-      # Build the project
-      - name: Build the project
-        run: npm run rollup
-
-      # Publish the package to GitHub Package Registry
-      - name: Publish to GitHub Registry
-        run: npm publish
+      # Publish the package using Lerna
+      - name: Publish to GitHub Registry with Lerna
+        run: npx lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
