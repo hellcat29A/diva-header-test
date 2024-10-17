@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "declaration": true,
+      "declarationDir": "dist/types",
+      "emitDeclarationOnly": true,
+      "outDir": "dist",
+      "jsx": "react",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "target": "es5",
+      "strict": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "lib": ["dom", "dom.iterable", "esnext"]
+    },
+    "include": ["src"]
+  }
+  
